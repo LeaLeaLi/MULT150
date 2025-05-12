@@ -1,0 +1,8 @@
+/*
+Start Color
+Start Lifetime
+Start Size
+Start Speed
+Shape Angle
+Color over Lifetime
+*/
