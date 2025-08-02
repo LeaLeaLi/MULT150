@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- Lea Li -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <title>Image Gallery</title>
+  </head>
+  <body>
+    <h2>Image Gallery</h2>
+
+    <!-- Main image display -->
+    <div id="gallery">
+      <img id="mainPic" src="1.jpg" width="500" />
+    </div>
+
+    <!-- Navigation buttons -->
+    <br />
+    <a href="#" id="prevBtn" onclick="prevPic(event)" style="display: none"
+      >Previous</a
+    >
+    <a href="#" id="nextBtn" onclick="nextPic(event)">Next</a>
+
+    <script>
+      // Array of image filenames
+      var pics = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
+
+      // Track the current picture
+      var currentPic = 0;
+
+      // Show the next picture
+      function nextPic(event) {
+        event.preventDefault(); // prevent page reload
+
+        if (currentPic < pics.length - 1) {
+          currentPic++;
+          document.getElementById("mainPic").src = pics[currentPic];
+        }
+
+        // Show or hide buttons depending on position
+        if (currentPic == pics.length - 1) {
+          document.getElementById("nextBtn").style.display = "none";
+        } else {
+          document.getElementById("nextBtn").style.display = "inline";
+        }
+
+        if (currentPic > 0) {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+      }
+
+      // Show the previous picture
+      function prevPic(event) {
+        event.preventDefault();
+
+        if (currentPic > 0) {
+          currentPic--;
+          document.getElementById("mainPic").src = pics[currentPic];
+        }
+
+        if (currentPic == 0) {
+          document.getElementById("prevBtn").style.display = "none";
+        } else {
+          document.getElementById("prevBtn").style.display = "inline";
+        }
+
+        if (currentPic < pics.length - 1) {
+          document.getElementById("nextBtn").style.display = "inline";
+        }
+      }
+    </script>
+  </body>
+</html>
